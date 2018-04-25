@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>金皇朝</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/Content/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <link href="/Content/Bootstrap?v=zNsFSNnaA8uptDkSXj2P4HM7gksRdYc7JxkYtdi-vLw1" rel="stylesheet"/>
+
+    <link href="/Content/jqueryuicss?v=-FAW9pYUi8gugltXdIrBbxDd4Zj5RhxBExTk5CGSZIY1" rel="stylesheet"/>
+
+    <link href="/Content/MobileCss?v=UHJfaLTqF0jsw6A97yKzf44tma_G7CPWAnOduOv7Exo1" rel="stylesheet"/>
+
+    <link href="/Content/JqueryMoblieCss?v=" rel="stylesheet"/>
+
+
+    <script type="text/javascript">
+  var appInsights=window.appInsights||function(config){
+    function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+    }({
+        instrumentationKey:"8c8ad63a-9dbf-4f60-bbe7-8307028853d4"
+        });
+         appInsights.setAuthenticatedUserContext("YU68889".replace(/[,;=| ]+/g, "_"));
+    window.appInsights=appInsights;
+    appInsights.trackPageView();
+</script>
+
+</head>
+
+<body class="BGB">
+
+    
+
+
+<script src="/bundles/jquery?v=M6dmVkrHVhoZ1gfOtvVDZbgBcQTsbWxoLsRizcGkbPk1"></script>
+
+
+<div class="wrap" style="margin-bottom: 50px">
+<div class="head">
+    <div class="title">
+        <div class="col-xs-12 col-sm-12">
+                <i class="fa fa-chevron-left"  style="color:white;" onclick="goBack();" id="backUrl"></i>
+            <strong class="LotteryGameName">我要充值</strong>
+            <div id="wechatbet-rule-btn" class="wechatbet-mode-panel" style="display:none;">
+                <div class="pktext-rules"><span></span>规则</div>
+                <div class="pktext-rules-close" style="display: none;">关闭规则</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="/ThirdPartyPaymentDepositRequest/ThirdPartyPaymentAndBankDepositCreate" class="forminput" id="form" method="post"><input name="__RequestVerificationToken" type="hidden" value="O9ArR29koDZbts6OFrGMhRPDQngDx6Jz2lwXbOz2qG3_GZCQrsiw20oa9CCGh8pdjt1SK48QDeoQu0X5wnaSFxtLyeC9SBOkP1DCux0ZpSD_JsiPMQ3-Nmq8EULFdp1cyRt80yfjxU-bncv-Gd8Tpw2" />            <ul class="clearfix">
+                <li>
+                    <div class="text">充值类型</div>
+                    <div class="intext">
+
+                        <select id="AccountTypeTitle" onchange="AccountTypeTitleOnChange()">
+                                    <option id="支付宝" data-role="none" data-value="0" selected>支付宝</option>
+                                    <option id="网银汇款" data-role="none" data-value="1">网银汇款</option>
+                                    <option id="在线支付" data-role="none" data-value="2">在线支付</option>
+                                    <option id="QQ钱包" data-role="none" data-value="6">QQ钱包</option>
+                                    <option id="京东支付" data-role="none" data-value="7">京东支付</option>
+                                    <option id="银联扫码" data-role="none" data-value="9">银联扫码</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="text">入款方式</div>
+                    <div class="intext">
+                        <span id="noAccountMessage" style="height:auto; font-size: 20px;display:none;">
+                            没有可用的入款帐户。
+                        </span>
+                        <select id="BankDepositSelect" name="BankAccountID" onchange="BankAccountIDOnChange()">
+                                <option data-DepositMethod="0" data-category="Bank" data-role="none" style="display:none;" data-banklist="" data-banklistname="" data-choosebank="" class="BankAccountIDListMember Type_0" id="CCB" name="BankAccountID" value="264" data-min="10" data-type="0" data-max="20000">&nbsp;中国建设银行&nbsp;</option>
+                                <option data-DepositMethod="0" data-category="Bank" data-role="none" style="display:none;" data-banklist="" data-banklistname="" data-choosebank="" class="BankAccountIDListMember Type_1" id="BOC" name="BankAccountID" value="254" data-min="100" data-type="0" data-max="20000">&nbsp;中国银行&nbsp;</option>
+                                                            <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="CCB,ABC,ICBC,BOC,SPDB,CEB,PB,CIB,PSBC,CITICB,HXB,CMB,CGB,BOB,SCSB,CMBC,BCM,BJRCB" data-banklistname="中国建设银行,中国农业银行,中国工商银行,中国银行,上海浦东发展银行,中国光大银行,平安银行,兴业银行,中国邮政储蓄银行,中信银行,华夏银行,招商银行,广发银行,北京银行,上海银行,中国民生银行,交通银行,北京农村商业银行" data-choosebank="True" class="Type_2 ThirdPartyPaymentStoreListMember" id="116" name="BankAccountID" value="116" data-min="10" data-type="1" data-max="50000">&nbsp;水滴支付&nbsp;</option>
+                                <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="不支援" data-banklistname="不支援" data-choosebank="False" class="Type_6 ThirdPartyPaymentStoreListMember" id="98" name="BankAccountID" value="98" data-min="10" data-type="1" data-max="3000">&nbsp;微笑支付&nbsp;</option>
+                                <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="ABC,BOB,BOC,SCSB,CCB,CEB,CIB,CMBC,CMB,CITICB,CGB,HXB,ICBC,PSBC,SPDB" data-banklistname="中国农业银行,北京银行,中国银行,上海银行,中国建设银行,中国光大银行,兴业银行,中国民生银行,招商银行,中信银行,广发银行,华夏银行,中国工商银行,中国邮政储蓄银行,上海浦东发展银行" data-choosebank="False" class="Type_6 ThirdPartyPaymentStoreListMember" id="121" name="BankAccountID" value="121" data-min="10" data-type="1" data-max="4000">&nbsp;艾付&nbsp;</option>
+                                <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="不支援" data-banklistname="不支援" data-choosebank="False" class="Type_9 ThirdPartyPaymentStoreListMember" id="92" name="BankAccountID" value="92" data-min="10" data-type="1" data-max="10000">&nbsp;微笑支付&nbsp;</option>
+                                <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="不支援" data-banklistname="不支援" data-choosebank="False" class="Type_2 ThirdPartyPaymentStoreListMember" id="100" name="BankAccountID" value="100" data-min="10" data-type="1" data-max="50000">&nbsp;微笑支付&nbsp;</option>
+                                <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="ABC,BOB,BOC,SCSB,CCB,CEB,CIB,CMBC,CMB,CITICB,CGB,HXB,ICBC,PSBC,SPDB" data-banklistname="中国农业银行,北京银行,中国银行,上海银行,中国建设银行,中国光大银行,兴业银行,中国民生银行,招商银行,中信银行,广发银行,华夏银行,中国工商银行,中国邮政储蓄银行,上海浦东发展银行" data-choosebank="True" class="Type_2 ThirdPartyPaymentStoreListMember" id="120" name="BankAccountID" value="120" data-min="10" data-type="1" data-max="20000">&nbsp;艾付&nbsp;</option>
+                                <option data-DepositMethod="1" data-category="Third" data-role="none" style="display:none;" data-banklist="不支援" data-banklistname="不支援" data-choosebank="False" class="Type_7 ThirdPartyPaymentStoreListMember" id="124" name="BankAccountID" value="124" data-min="10" data-type="1" data-max="1000">&nbsp;微笑支付&nbsp;</option>
+                        </select> 
+                        <span class="field-validation-valid " data-valmsg-for="BankAccountID" data-valmsg-replace="true" style="color:#da9a12;"></span>                       
+                    </div>
+                    <input id="ThirdPartyPaymentBank" name="ThirdPartyPaymentBank" type="hidden" value="" />
+                </li>
+                <input id="BankCode" name="BankCode" type="hidden" value="" />
+                <input data-val="true" data-val-number="The field DepositMethod must be a number." data-val-required="The DepositMethod field is required." id="DepositMethod" name="DepositMethod" type="hidden" value="" />
+                <li>
+                    <div class="text">金额限制</div>
+                    <div class="intext">
+                        最低:<span style="display:inline-block;" id="min"></span>
+                        &nbsp;&nbsp;最高:
+                        <span style="width:50px; display:inline-block;" id="max"></span>
+                        <span id="BankAmountValidationMessage" style="color:#da9a12;"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="text">充值金额</div>
+                    <div class="intext">
+                        <input class="text-box single-line" data-val="true" data-val-number="The field 充值金额 must be a number." data-val-regex="请输入有效数字，不可为负数与小数。" data-val-regex-pattern="[0-9]*" data-val-required="请输入充值金额。" id="Amount" name="Amount" placeholder="请输入金额" type="number" value="" />
+                        <span class="field-validation-valid " data-valmsg-for="Amount" data-valmsg-replace="true" style="color:#da9a12;"></span>
+                    </div>
+                </li>
+                <li class="alipayAccName" style="display: none;">
+                    <div class="text nameTitle" style="letter-spacing:0px;">入款人姓名</div>
+                    <div class="intext">
+                        <input class="text-box single-line" data-val="true" data-val-length="The field 存款人姓名 must be a string with a maximum length of 50." data-val-length-max="50" id="Name" name="Name" placeholder="请输入入款人姓名" type="text" value="" />
+                        <span class="field-validation-valid " data-valmsg-for="Name" data-valmsg-replace="true" style="color:#da9a12;"></span>
+                    </div>
+                </li>
+                <li class="ThirdPayBanksDiv" style="display:none;">
+                    <div class="text">入款银行</div>
+                    <div class="intext">
+                        <select class="" id="ThirdPayBanksDiv" name="" placeholder="入款银行">
+                        </select>
+                        <span class="font-p" id="ThirdBankValidationMessage" style="color:#da9a12;"></span>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" id="create" class="bm-btn">确认提交</button>
+            <button type="button" style="display:none;" data-toggle="modal" data-target="#confirmModal" id="confirmBoxOn"></button>
+<input data-val="true" data-val-number="The field DepositAccountType must be a number." data-val-required="The DepositAccountType field is required." id="DepositAccountType" name="DepositAccountType" type="hidden" value="" /></form>    <button type="button" style="display:none;" data-toggle="modal" data-target="#dialogSuccess" id="dialogSuccessTrigger"></button>
+</div>
+
+<!-- 确认提交视窗  -->
+<div style="padding:0px !important; overflow:hidden !important;" class="modal fade modal-open modal-open-noscroll scrollbar-measure" id="confirmModal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    <i class="line"></i>入款明细确认
+                    <a style="color:#FFF;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                </h4>
+
+            </div>
+            <div class="modal-body Hide deposureb">
+                <p>充值类型：<span id="confirmAccountType"></span></p>
+                <p>入款方式：<span id="confirmBankAccountID"></span></p>
+                <p class="ThirdPayBanksDiv" style="display:none;">入款银行：<span id="confirmBank"></span></p>
+                <p>充值金额：<span id="confirmAmount"></span>元</p>
+                <p style="display: none;" class="alipayAccName">
+                    <span class="nameTitle">入款姓名</span>：
+                    <span id="confirmName"></span>
+                </p>
+                <div class="tc"><button class="m-btn" id="confirmOkBtn">确定</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 撤銷申請提交视窗  -->
+<div style="padding:0px !important; overflow:hidden !important;" class="modal fade modal-open modal-open-noscroll scrollbar-measure" id="expireDialog" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    <i class="line"></i>撤銷申請
+                    <a style="color:#FFF;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                </h4>
+
+            </div>
+            <div class="modal-body Hide deposureb">
+                <p>您確定要撤銷申請嗎?</p>
+                <p>若您已充值成功，请您耐心等候。</p>
+                <div class="clearfix">
+                    <button class="m-btn" id="CancelConfirm">确认提交</button>
+                    <button class="m-btn" data-dismiss="modal">返回上一步</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 撤銷成功视窗  -->
+<div style="padding:0px !important; overflow:hidden !important;" class="modal fade modal-open modal-open-noscroll scrollbar-measure" id="dialogSuccess" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    <i class="line"></i>撤銷申請
+                    <a style="color:#FFF;" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                </h4>
+
+            </div>
+            <div class="modal-body Hide deposureb">
+                <p id="dialogSuccessText">您已撤銷成功，請重新發起申請。</p>
+                <div class="tc">
+                    <button class="m-btn" data-dismiss="modal" href="/ThirdPartyPaymentDepositRequest/ThirdPartyPaymentAndBankDepositCreate">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="warning-dialog" title="温馨提示" style="display:none;word-break:break-all;"></div>
+
+<div id="expire-dialog" title="温馨提示" style="display:none;word-break:break-all;"></div>
+
+<div id="confirm-dialog" title="温馨提示" style="display:none;word-break:break-all;"></div>
+
+<div id="password-dialog" title="输入密码" style="display:none;word-break:break-all;"></div>
+
+<div id="betSuccess-dialog" title="温馨提示" style="display:none;word-break:break-all;"></div>
+
+<div id="important-dialog" title="重要提示" style="display:none;word-break:break-all;"></div>
+
+
+
+    <div style="display:none">
+        <audio id="chatMessageInputSoundContainer" controls>
+            <source src="/Content/chatJs/sounds/chat.ogg" type="audio/ogg">
+            <source src="/Content/chatJs/sounds/chat.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <input name="__RequestVerificationToken" type="hidden" value="bCFZ2pss6dBL2AMraJPrpRNSTKFJRVrdl5GNlhL2gHScfLlOoB-jtjl0j7XtewXB1bf0P-AQELLtjvyY_xQZaejEm8ub79WoXl4RlD298BV8Gh2eVSe1-vM5PLvMzi0yRXbavp-BX8msy3g3CRtdkg2" />
+    <script src="/bundles/jquery?v=M6dmVkrHVhoZ1gfOtvVDZbgBcQTsbWxoLsRizcGkbPk1"></script>
+
+    <script src="/bundles/bootstrap?v=_1QV3uyg6_GeYXKGAKKiH8hYdvJhG5D2tjnhhCFYtQc1"></script>
+
+    <script src="/bundles/util?v=FrxZQJU3fwM8vysW9_etWfW58iTd3_EbjFknz4KbX9g1"></script>
+
+    <script src="/bundles/utilMoblie?v=UEJNpsM8VR28BZkiW__tgYaKsesCpb9g0s8r0hGEvf81"></script>
+
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <!-- <script src="/Scripts/jquery.mobile.customized.min.js" type="text/javascript"></script> -->
+    <!--<![endif]-->
+    <script src="/bundles/jqueryui?v=5C0ORJhlZBvndUGn_5gq3Cx2zG0IH5bS66K40_14p6I1"></script>
+
+    <script src="/bundles/jqueryval?v=nsOwUc2j3GMqgidS30eLgZVJeHn83Wqmm2vMD4cUlKA1"></script>
+
+    <script src="/bundles/jqueryajax?v=Xuam6TWPhcGt1QT7p5fexG3T-XZA9hjh88zJ89jkDQQ1"></script>
+
+    <!--Reference the SignalR library. -->
+    <script src="/bundles/signalr?v=IwJI70Yvn8Jw4eT3LkYxlCiTN_dgppHjJmz4tRrGO-I1"></script>
+
+    <!--Reference the autogenerated SignalR hub script. -->
+    <script src="/signalr/hubs"></script>
+    
+        <!-- chatjs for heartbeat files-->
+<script src="/bundles/mobileHeartbeatJs?v=3gw2WyL6TWAkF1kdPP4aNHYDtttrzNUiah2pQqv1O-Q1"></script>
+    <script src="/bundles/excludingaccount?v=6Va3JeJDErZ6T-TV3ICLWtFDCFIa1BcfEPtmzuMk4yg1"></script>
+ 
+
+    
+    <script src="/bundles/jqueryval?v=nsOwUc2j3GMqgidS30eLgZVJeHn83Wqmm2vMD4cUlKA1"></script>
+
+    <script src="/bundles/util?v=FrxZQJU3fwM8vysW9_etWfW58iTd3_EbjFknz4KbX9g1"></script>
+
+    <script type="text/javascript">
+
+
+
+            var typeID=0;
+
+        var index=0;
+            var selectedAccount = null;
+                    var selectedThirdPartyPaymentBank = null;
+
+
+
+        $(document).ready(function () {
+
+                 ChangeTitle();
+
+            var url = "/DepositRequest/Cancel";
+            var minamount = 0, maxamount = 0;
+            var obj = new intToChineseNumberString(false);
+            var BankAccountID = 0;
+            var DepositMethodTypeClass = "";
+
+
+
+                 var id = "";
+            
+
+
+            $("#create").click(function () {
+                var $form = $(this).parents("form");
+                if ($form.valid()) {
+                    var amount = parseInt($("#Amount").val());
+                    $("#BankCode").val($('#BankDepositSelect :selected').attr('id'));
+                    minamount = parseInt($('#BankDepositSelect :selected').attr("data-min"));
+                    maxamount = parseInt($('#BankDepositSelect :selected').attr("data-max"));
+                    if (!$.isNumeric(maxamount)) {
+                        $("#BankAmountValidationMessage").html("请选择入款银行!");
+                        return;
+                    }
+                    $("#BankAmountValidationMessage").html("");
+                    if (amount < minamount || amount > maxamount) {
+                        $('span[data-valmsg-for="Amount"]').html("请输入正确的金额。");
+                        return;
+                    }
+                    $("#Name").val($.trim($("#Name").val()));
+                    if ((((typeID == DepositAccountType.ALIPAY && $('#BankDepositSelect :selected').attr("data-DepositMethod") == DepositRequestMethod.Deposit))|| $("#BankCode").val() == "PERSONALWEIXIN") && $("#Name").val().length <= 0) {
+                        $('span[data-valmsg-for="Name"]').html("请输入入款人姓名。");
+                        return;
+                    }
+
+                    if ($("input[name=BankAccountID]:checked").attr('id') == "PERSONALWEIXIN") {
+                        $("#form").attr("action", "/DepositRequest/CreateFast");
+                        InfoDisplay(amount);
+                        return;
+                    } // 如果是個人微信form的action位置改成"/DepositRequest/CreateFast"
+
+                    if ($("#DepositMethod").val() == DepositRequestMethod.ThirdPartyPaymentDeposit){
+                        //檢查是否直連銀行 是則要看有沒有選擇銀行
+                        if ($('#BankDepositSelect :selected').attr("data-chooseBank") != "" && $('#BankDepositSelect :selected').attr("data-chooseBank") == "True") {
+                            if ($("#ThirdPartyPaymentBank").val() == "" || $("#ThirdPartyPaymentBank").val() == null) {
+                                $("#create").attr("disabled", false);
+                                $("#ThirdBankValidationMessage").html("请选择银行。");
+                                return false;
+                            }
+                        }
+                    }
+
+                    InfoDisplay(amount);
+                }
+            });
+
+            // 確認視窗按下OK，已form.submit送至後台
+            $("#confirmOkBtn").click(ConfirmDialogSubmit);
+
+            $("#CancelConfirm").click(function () {
+                $.post(url, { id: id, __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() })
+                .done(function (data) {
+                    $("#dialogSuccessTrigger").trigger("click");
+                    if (data.IsNotFound) {
+                        $("#dialogSuccessText").html("此申请已不存在，若有需要请重新申请。");
+                    }
+                    else if (data.IsInvalid) {
+                        $("#dialogSuccessText").html("您的申请已由服务人员处理完成，若还有需要，请重新申请。");
+                    }
+                    $('#dialogSuccess').on('hide.bs.modal', function () {
+                        window.location.href = "/ThirdPartyPaymentDepositRequest/ThirdPartyPaymentAndBankDepositCreate";
+                    })
+                })
+                .fail(function (data) {
+                    if (IsGlobalAjaxErrorCode(data.status)) return;
+                    alert("failed!");
+                })
+                .always(function(data) {
+                    $("#expireDialog").css("display", "none");
+                    $("#expireDialog").attr("aria-hidden", "true");
+                });
+            });
+
+            $("#GoToLink").click(function(){
+                window.location.href = $(this).attr("href");
+            });
+
+            BackUrlInit();
+        });
+
+        function InfoDisplay(amount)
+        {
+            // 确认提交视窗
+            $("#confirmAccountType").html($('#AccountTypeTitle').find(":selected").html());
+            $("#confirmBankAccountID").html($('#BankDepositSelect :selected').html());
+            $("#confirmBank").html($('#ThirdPayBanksDiv option:selected').text());
+            $("#confirmAmount").html(amount);
+            $("#confirmName").html($("#Name").val());
+
+            // 設定一個隱藏按鈕，以觸發確認視窗彈出
+            $("#confirmBoxOn").trigger("click");
+        }
+
+        function AccountTypeTitleOnChange()
+        {
+            // 清空
+            $("#noAccountMessage").css("display","none");
+            index=0;
+            $("#min").text("0");
+            $("#max").text("0");
+            $(".alipayAccName").css("display", "none");
+
+            // 設定新選的[充值類型]
+            typeID=$('#AccountTypeTitle').find(":selected").attr("data-value");
+            ChangeTitle();
+        }
+
+        function BankAccountIDOnChange()
+        {
+            // 沒有可用入款方式
+            if( $('#BankDepositSelect').children('option').length == 0 )
+            {
+                $("#noAccountMessage").css("display","");
+            }
+
+            // 設定所選的[入款方式]各項參數
+            $("#min").text($('#BankDepositSelect :selected').attr("data-min"));
+            $("#max").text($('#BankDepositSelect :selected').attr("data-max"));
+            $(".alipayAccName").toggle(((typeID == DepositAccountType.ALIPAY || typeID == DepositAccountType.BANKDEPOSIT) && $('#BankDepositSelect :selected').attr("data-DepositMethod") == DepositRequestMethod.Deposit) || $(this).attr("id") == "PERSONALWEIXIN");
+
+            // Deposit or ThirdPartyPaymentDeposit
+            var depositMethod = $('#BankDepositSelect :selected').attr("data-type");
+            $("#DepositMethod").val(depositMethod);
+            if(depositMethod == "1"){
+                ThirdPartyPaymentClick();
+            }
+            else{
+                $("#ThirdPayBanksDiv").html("");
+                $(".ThirdPayBanksDiv").css("display","none");
+            }
+
+            $("#BankCode").val($('#BankDepositSelect :selected').attr('id'));
+            if (((typeID == DepositAccountType.ALIPAY || typeID == DepositAccountType.BANKDEPOSIT) && $('#BankDepositSelect :selected').attr("data-DepositMethod") == DepositRequestMethod.Deposit) || $("#BankCode").val() == "PERSONALWEIXIN")
+            {
+                $(".alipayAccName").css("display", "");
+            }
+
+            // 依據DepositAccountType設定form的action
+            if ($('#BankDepositSelect :selected').attr("data-DepositMethod") == DepositRequestMethod.Deposit || $("#BankCode").val() == "PERSONALWEIXIN") {
+                $("#form").attr("action", "/DepositRequest/CreateFast");
+            }
+            else {
+                $("#form").attr("action", "/ThirdPartyPaymentDepositRequest/ThirdPartyPaymentAndBankDepositCreate");
+            }
+        }
+
+        function ChangeTitle(){
+            displayDepositeSelect();
+            BankAccountIDOnChange();
+            $("#DepositAccountType").val(typeID);
+            $("#BankAmountValidationMessage").html("");
+            $('span[data-valmsg-for="Amount"]').html("");
+            if (typeID == DepositAccountType.WEIXINPAY){
+                $(".nameTitle").html("付款人微信号");
+                $("#Name").attr("placeholder", "请输入付款人微信号");
+            }
+            else{
+                $(".nameTitle").html("入款人姓名");
+                $("#Name").attr("placeholder", "请输入入款人姓名");
+            }
+        }
+
+        $("#ThirdPayBanksDiv").change(function(){
+            $("#ThirdPartyPaymentBank").val($(this).val());
+        });
+
+        function ThirdPartyPaymentClick(){
+            $("#ThirdPartyPaymentBank").val(null);
+            if($('#BankDepositSelect :selected').attr("data-chooseBank") !="" && $('#BankDepositSelect :selected').attr("data-chooseBank")  =="True")
+            {
+                $('#BankDepositSelect :selected').attr("data-banklist")
+                var NewArrayBankCode =  $('#BankDepositSelect :selected').attr("data-banklist").split(",");
+                var NewArrayBankName =  $('#BankDepositSelect :selected').attr("data-banklistName").split(",");
+                var bankList="";
+                for(var i=0;i<NewArrayBankCode.length;i++){
+                    bankList += "<option value='"+NewArrayBankCode[i]+"'>"+NewArrayBankName[i]+"</option>";
+                }
+
+                $("#ThirdPayBanksDiv").html(bankList);
+                $(".ThirdPayBanksDiv").css("display","");
+
+                $("#ThirdPayBanksDiv").val($("#ThirdPayBanksDiv option:first").val());
+
+                if(selectedThirdPartyPaymentBank!=null){
+                    $("#ThirdPayBanksDiv").val(selectedThirdPartyPaymentBank);
+                    $("#ThirdPartyPaymentBank").val( $("#ThirdPayBanksDiv").val());
+                    $("#ThirdPayBanksDiv").val($("#ThirdPayBanksDiv").val());
+
+                    for(var i=0;i<NewArrayBankName.length;i++){
+                        if(NewArrayBankCode[i]==selectedThirdPartyPaymentBank)
+                            $("#ThirdPayBanksDiv-button span").html(NewArrayBankName[i]);
+                    }
+                }
+                else{
+                    //自動選取第一個銀行
+                    $("#ThirdPartyPaymentBank").val( $("#ThirdPayBanksDiv option:first").val());
+                    $("#ThirdPayBanksDiv").val($("#ThirdPayBanksDiv option:first").val());
+                    $("#ThirdPayBanksDiv-button span").html(NewArrayBankName[0]);
+                }
+            }
+            else{
+                $("#ThirdPayBanksDiv").html("");
+                $(".ThirdPayBanksDiv").css("display","none");
+            }
+        }
+
+        function displayDepositeSelect(){
+            var select = document.getElementById("BankDepositSelect");
+            if(select == undefined)
+                return;
+
+            $("#BankDepositSelect").html("");
+            //Create and append the options
+            var options = [];
+                options[0] = document.createElement("option");
+                options[0].value = 264;
+                options[0].setAttribute("data-type", 0);
+                options[0].setAttribute("id", "CCB");
+                options[0].setAttribute("data-min",10);
+                options[0].setAttribute("data-max",20000);
+                options[0].setAttribute("AccountType",0);
+                options[0].setAttribute("data-chooseBank", "");
+                options[0].setAttribute("data-banklist", "");
+                options[0].setAttribute("data-DepositMethod", DepositRequestMethod.Deposit);
+                options[0].text = "中国建设银行";
+                options[1] = document.createElement("option");
+                options[1].value = 254;
+                options[1].setAttribute("data-type", 0);
+                options[1].setAttribute("id", "BOC");
+                options[1].setAttribute("data-min",100);
+                options[1].setAttribute("data-max",20000);
+                options[1].setAttribute("AccountType",1);
+                options[1].setAttribute("data-chooseBank", "");
+                options[1].setAttribute("data-banklist", "");
+                options[1].setAttribute("data-DepositMethod", DepositRequestMethod.Deposit);
+                options[1].text = "中国银行";
+
+            options[2] = document.createElement("option");
+            options[2].value = 116;
+            options[2].setAttribute("data-type", 1);
+            options[2].setAttribute("id", "116");
+            options[2].setAttribute("data-min",10);
+            options[2].setAttribute("data-max",50000);
+            options[2].setAttribute("AccountType",2);
+            options[2].setAttribute("data-chooseBank", "True");
+            options[2].setAttribute("data-banklist", "CCB,ABC,ICBC,BOC,SPDB,CEB,PB,CIB,PSBC,CITICB,HXB,CMB,CGB,BOB,SCSB,CMBC,BCM,BJRCB");
+            options[2].setAttribute("data-banklistname", "中国建设银行,中国农业银行,中国工商银行,中国银行,上海浦东发展银行,中国光大银行,平安银行,兴业银行,中国邮政储蓄银行,中信银行,华夏银行,招商银行,广发银行,北京银行,上海银行,中国民生银行,交通银行,北京农村商业银行");
+            options[2].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[2].text = "水滴支付";
+            options[3] = document.createElement("option");
+            options[3].value = 98;
+            options[3].setAttribute("data-type", 1);
+            options[3].setAttribute("id", "98");
+            options[3].setAttribute("data-min",10);
+            options[3].setAttribute("data-max",3000);
+            options[3].setAttribute("AccountType",6);
+            options[3].setAttribute("data-chooseBank", "False");
+            options[3].setAttribute("data-banklist", "不支援");
+            options[3].setAttribute("data-banklistname", "不支援");
+            options[3].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[3].text = "微笑支付";
+            options[4] = document.createElement("option");
+            options[4].value = 121;
+            options[4].setAttribute("data-type", 1);
+            options[4].setAttribute("id", "121");
+            options[4].setAttribute("data-min",10);
+            options[4].setAttribute("data-max",4000);
+            options[4].setAttribute("AccountType",6);
+            options[4].setAttribute("data-chooseBank", "False");
+            options[4].setAttribute("data-banklist", "ABC,BOB,BOC,SCSB,CCB,CEB,CIB,CMBC,CMB,CITICB,CGB,HXB,ICBC,PSBC,SPDB");
+            options[4].setAttribute("data-banklistname", "中国农业银行,北京银行,中国银行,上海银行,中国建设银行,中国光大银行,兴业银行,中国民生银行,招商银行,中信银行,广发银行,华夏银行,中国工商银行,中国邮政储蓄银行,上海浦东发展银行");
+            options[4].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[4].text = "艾付";
+            options[5] = document.createElement("option");
+            options[5].value = 92;
+            options[5].setAttribute("data-type", 1);
+            options[5].setAttribute("id", "92");
+            options[5].setAttribute("data-min",10);
+            options[5].setAttribute("data-max",10000);
+            options[5].setAttribute("AccountType",9);
+            options[5].setAttribute("data-chooseBank", "False");
+            options[5].setAttribute("data-banklist", "不支援");
+            options[5].setAttribute("data-banklistname", "不支援");
+            options[5].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[5].text = "微笑支付";
+            options[6] = document.createElement("option");
+            options[6].value = 100;
+            options[6].setAttribute("data-type", 1);
+            options[6].setAttribute("id", "100");
+            options[6].setAttribute("data-min",10);
+            options[6].setAttribute("data-max",50000);
+            options[6].setAttribute("AccountType",2);
+            options[6].setAttribute("data-chooseBank", "False");
+            options[6].setAttribute("data-banklist", "不支援");
+            options[6].setAttribute("data-banklistname", "不支援");
+            options[6].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[6].text = "微笑支付";
+            options[7] = document.createElement("option");
+            options[7].value = 120;
+            options[7].setAttribute("data-type", 1);
+            options[7].setAttribute("id", "120");
+            options[7].setAttribute("data-min",10);
+            options[7].setAttribute("data-max",20000);
+            options[7].setAttribute("AccountType",2);
+            options[7].setAttribute("data-chooseBank", "True");
+            options[7].setAttribute("data-banklist", "ABC,BOB,BOC,SCSB,CCB,CEB,CIB,CMBC,CMB,CITICB,CGB,HXB,ICBC,PSBC,SPDB");
+            options[7].setAttribute("data-banklistname", "中国农业银行,北京银行,中国银行,上海银行,中国建设银行,中国光大银行,兴业银行,中国民生银行,招商银行,中信银行,广发银行,华夏银行,中国工商银行,中国邮政储蓄银行,上海浦东发展银行");
+            options[7].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[7].text = "艾付";
+            options[8] = document.createElement("option");
+            options[8].value = 124;
+            options[8].setAttribute("data-type", 1);
+            options[8].setAttribute("id", "124");
+            options[8].setAttribute("data-min",10);
+            options[8].setAttribute("data-max",1000);
+            options[8].setAttribute("AccountType",7);
+            options[8].setAttribute("data-chooseBank", "False");
+            options[8].setAttribute("data-banklist", "不支援");
+            options[8].setAttribute("data-banklistname", "不支援");
+            options[8].setAttribute("data-DepositMethod", DepositRequestMethod.ThirdPartyPaymentDeposit);
+            options[8].text = "微笑支付";
+
+            for (var i = 0; i < options.length; i++) {
+                var temp = options[i].getAttribute("AccountType");
+                if(typeID == options[i].getAttribute("AccountType"))
+                    select.appendChild(options[i]);
+            }
+        }
+    </script>
+
+
+</body>
+</html>
